@@ -42,10 +42,10 @@ class LoginWindow:
 
         # Configure grid for centering elements
         self.form_frame.grid_propagate(False)  # Prevent the frame from resizing
-        self.form_frame.grid_rowconfigure(0, weight=1)
-        self.form_frame.grid_rowconfigure(1, weight=1)
-        self.form_frame.grid_rowconfigure(2, weight=1)
-        self.form_frame.grid_rowconfigure(3, weight=2)
+        self.form_frame.grid_rowconfigure(0, weight=0)
+        self.form_frame.grid_rowconfigure(1, weight=0)
+        self.form_frame.grid_rowconfigure(2, weight=0)
+        self.form_frame.grid_rowconfigure(3, weight=0)
 
         # Create widgets using reusable functions
         self.username_label = create_label(self.form_frame, "Username:", self.TEXT_COLOR, ("Arial", 16))
