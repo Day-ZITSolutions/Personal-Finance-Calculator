@@ -37,35 +37,39 @@ class LoginWindow:
         self.image_label.pack(fill="both", expand=True)
 
         # Create main container frame for login form
-        self.form_frame = ctk.CTkFrame(self.main_frame, bg_color=self.SECONDARY_COLOR, corner_radius=12, width=450, height=700)
+        self.form_frame = ctk.CTkFrame(self.main_frame, bg_color=self.SECONDARY_COLOR, width=450, height=700)
         self.form_frame.pack(side="right", fill="both", expand=True)
 
         # Configure grid for centering elements
         self.form_frame.grid_propagate(False)  # Prevent the frame from resizing
-        self.form_frame.grid_rowconfigure(0, weight=0)
+        self.form_frame.grid_rowconfigure(0, weight=2)
         self.form_frame.grid_rowconfigure(1, weight=0)
         self.form_frame.grid_rowconfigure(2, weight=0)
         self.form_frame.grid_rowconfigure(3, weight=0)
+        self.form_frame.grid_rowconfigure(4, weight=0)
+        self.form_frame.grid_rowconfigure(5, weight=2)
+        
 
+        
         # Create widgets using reusable functions
         self.username_label = create_label(self.form_frame, "Username:", self.TEXT_COLOR, ("Arial", 16))
-        self.username_label.grid(row=0, column=0, padx=(20, 10), pady=10, sticky="e")
+        self.username_label.grid(row=1, column=0, pady=0, sticky="e")
 
         self.username_entry = create_entry(self.form_frame, "Enter username", self.TEXT_COLOR, ("Arial", 16))
-        self.username_entry.grid(row=0, column=1, padx=(10, 20), pady=10, sticky="w")  
+        self.username_entry.grid(row=1, column=1, sticky="w")  
 
         self.password_label = create_label(self.form_frame, "Password:", self.TEXT_COLOR, ("Arial", 16))
-        self.password_label.grid(row=1, column=0, padx=(20, 10), pady=10, sticky="e")
+        self.password_label.grid(row=2, column=0, padx=(20, 10), pady=10, sticky="e")
 
         self.password_entry = create_entry(self.form_frame, "Enter password", self.TEXT_COLOR, ("Arial", 16), show="*")
-        self.password_entry.grid(row=1, column=1, padx=(10, 20), pady=10, sticky="w")  
+        self.password_entry.grid(row=2, column=1, sticky="w")  
 
         self.login_button = create_button(self.form_frame, "Login", self.login, "#007BFF", self.SECONDARY_COLOR, ("Arial", 16))
-        self.login_button.grid(row=2, columnspan=2, padx=20, pady=10)
+        self.login_button.grid(row=3, columnspan=2, padx=20, pady=10)
 
         # Register Now link
         self.register_button = create_button(self.form_frame, "Don't have an account? Register Now", self.show_registration, self.SECONDARY_COLOR, "#007BFF", ("Arial", 14))
-        self.register_button.grid(row=3, columnspan=2, padx=5, pady=(5, 20))
+        self.register_button.grid(row=4, columnspan=2, padx=5, pady=(5, 20))
 
     def login(self):
         username = self.username_entry.get()
